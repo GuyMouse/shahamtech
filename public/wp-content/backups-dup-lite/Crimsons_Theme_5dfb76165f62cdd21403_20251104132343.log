@@ -1,0 +1,75 @@
+********************************************************************************
+DUPLICATOR-LITE PACKAGE-LOG: 4 ÎæNovember 2025 13:23
+NOTICE: Do NOT post to public sites or forums 
+********************************************************************************
+VERSION:	1.5.14
+WORDPRESS:	6.8.3
+PHP INFO:	8.2.27 | SAPI: cgi-fcgi
+SERVER:		nginx/1.26.1 
+PHP TIME LIMIT: (0) no time limit imposed 
+PHP MAX MEMORY: 4294967296 (256M default) 
+MEMORY STACK: 6MB
+
+********************************************************************************
+DATABASE:
+********************************************************************************
+BUILD MODE:   PHP(query limit - 100)
+MYSQLTIMEOUT: 5000
+MYSQLDUMP:    Not Supported
+TABLES: total:13 | filtered:0 | create:13
+FILTERED: []
+SQL CREATED: Crimsons_Theme_5dfb76165f62cdd21403_20251104132343_database.sql
+SQL FILE SIZE: 889.7KB (911049)
+SQL FILE TIME: 2025-11-04 13:23:46
+SQL RUNTIME: 0.32 sec.
+
+********************************************************************************
+ARCHIVE (ZIP):
+********************************************************************************
+ARCHIVE DIR:  C:/Users/uxbur/Local Sites/shahamtech/app/public
+ARCHIVE FILE: Crimsons_Theme_5dfb76165f62cdd21403_20251104132343_archive.zip
+FILTERS: *OFF*
+DIRS:
+	not set
+FILES:
+	not set
+EXTS:  not set
+----------------------------------------
+COMPRESSING
+SIZE:	124.34MB
+STATS:	Dirs 1,050 | Files 6,614
+SQL ADDED: Crimsons_Theme_5dfb76165f62cdd21403_20251104132343_database.sql
+ZipArchive Object
+(
+    [lastId] => 7663
+    [status] => 0
+    [statusSys] => 0
+    [numFiles] => 7664
+    [filename] => C:\Users\uxbur\Local Sites\shahamtech\app\public\wp-content\backups-dup-lite\tmp\Crimsons_Theme_5dfb76165f62cdd21403_20251104132343_archive.zip
+    [comment] => 
+)
+
+FILE ADDED TO ZIP: 7663
+COMPRESSION RESULT: '1'
+COMPRESSED SIZE: 48.99MB
+ARCHIVE RUNTIME: 5.23 sec.
+MEMORY STACK: 8MB
+building installer
+ARCHIVE CONSISTENCY TEST: PASS
+
+********************************************************************************
+INTEGRITY CHECKS:
+********************************************************************************
+SQL FILE: 889.7KB
+INSTALLER FILE: 73.49KB
+ARCHIVE FILE: 50.88MB 
+EXPECTED FILE/DIRECTORY COUNT: 7,664
+ACTUAL FILE/DIRECTORY COUNT: 7,663
+ARCHIVE CONSISTENCY TEST: Pass
+
+********************************************************************************
+RECORD ID:[11]
+TOTAL PROCESS RUNTIME: 6.35 sec.
+PEAK PHP MEMORY USED: 8MB
+DONE PROCESSING => Crimsons_Theme 4 ÎæNovember 2025 13:23
+
