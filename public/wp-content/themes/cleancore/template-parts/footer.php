@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <footer id="site-footer" class="site-footer">
 	<div class="container">
 		<div class="site-footer--bottom-line">
-			Guy Crimson Argaman <a href="#" target="_blank">עיצוב ופיתוח אתרים</a>
-		</div>
+            <span>Footer</span>
+        </div>
 	</div>
 </footer>

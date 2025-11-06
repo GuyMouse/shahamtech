@@ -15,7 +15,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-
+<div id="tiles"></div>
+<div id="tiles-inverse"></div>
 <?php
 if(!is_singular( 'advisor' )){
 	get_template_part( 'template-parts/header' );

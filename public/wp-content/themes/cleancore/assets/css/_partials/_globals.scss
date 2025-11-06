@@ -14,89 +14,99 @@ html {
 }
 
 body {
-    margin:0;
-    padding:0;
-    font-family:$default-font;
-    font-size:1.8rem;
-    font-weight:400;
-    background-color:#fff;
-    color:#000;
-    direction:rtl;
-    overflow-x:hidden;
-    &.home{
-        position:relative;
+    margin: 0;
+    padding: 0;
+    font-family: $default-font;
+    font-size: 1.8rem;
+    font-weight: 400;
+    background-color: #0f2848;
+    color: #fff;
+    overflow-x: hidden;
+    &.home {
+        position: relative;
     }
 }
 
-main{
-    margin:0;
+main {
+    margin: 0;
 }
 
-.container{
-    width:120rem;
-    margin:0 auto;
-    @include mobile{
-        width:100%;
-        margin:0;
+.container {
+    width: 120rem;
+    margin: 0 auto;
+    @include mobile {
+        width: 100%;
+        margin: 0;
     }
 }
 
-h1,h2,h3,h4,
-.h1,.h2,.h3,.h4{
-    color:$main-color;
-    font-weight:700;
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+    color: $main-color;
+    font-weight: 700;
 }
 
-h1,.h1{
-    font-size:3.4rem;
+h1,
+.h1 {
+    font-size: 3.4rem;
 }
 
-h2,.h2{
-    font-size:2.5rem;
+h2,
+.h2 {
+    font-size: 2.5rem;
 }
 
-h3,.h3{
-    font-size:2rem;
+h3,
+.h3 {
+    font-size: 2rem;
 }
 
-h4,.h4{
+h4,
+.h4 {
     font-size: 1.8rem;
 }
 
-section{
-    position:relative;
+section {
+    position: relative;
 }
 
-a{
-    color:$main-color;
-    font-size:inherit;
-    font-weight:inherit;
-    line-height:inherit;
-    text-decoration:underline;
-    &:hover,&:focus{
-        text-decoration:none;
+a {
+    color: $main-color;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-decoration: underline;
+    &:hover,
+    &:focus {
+        text-decoration: none;
     }
 }
 
-.decorative-image{
-    pointer-events:none;
-    user-select:none;
+.decorative-image {
+    pointer-events: none;
+    user-select: none;
 }
 
-.hidden-content{
-    display:none;
+.hidden-content {
+    display: none;
 }
 
-.desktop{
-    @include mobile{
+.desktop {
+    @include mobile {
         display: none !important;
     }
 }
 
-.mobile{
+.mobile {
     display: none;
-    @include mobile{
-        display:initial;
+    @include mobile {
+        display: initial;
     }
 }
 
@@ -108,7 +118,7 @@ a{
     &:after {
         padding-top: 56.25%;
         display: block;
-        content: '';
+        content: "";
     }
     iframe {
         position: absolute;
@@ -118,8 +128,6 @@ a{
         height: 100%;
     }
 }
-
-
 
 /* =WordPress Core
 -------------------------------------------------------------- */
@@ -134,7 +142,7 @@ div.aligncenter {
 }
 
 .alignright {
-    float:right;
+    float: right;
     margin: 5px 0 20px 20px;
 }
 
@@ -201,32 +209,32 @@ a img.aligncenter {
 
 /* Text meant only for screen readers. */
 .screen-reader-text {
-	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute !important;
-	width: 1px;
-	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
 
 .screen-reader-text:focus {
-	background-color: #eee;
-	clip: auto !important;
-	clip-path: none;
-	color: #444;
-	display: block;
-	font-size: 1em;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000;
-	/* Above WP toolbar. */
+    background-color: #eee;
+    clip: auto !important;
+    clip-path: none;
+    color: #444;
+    display: block;
+    font-size: 1em;
+    height: auto;
+    left: 5px;
+    line-height: normal;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    top: 5px;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */
 }

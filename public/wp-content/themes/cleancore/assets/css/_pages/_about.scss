@@ -1,0 +1,58 @@
+.page-template-about-template {
+    .about {
+        &-circle {
+            position: absolute;
+            background: radial-gradient(55.79% 55.79% at 50% 50%, #60c5ff 0%, rgba(0, 0, 0, 0) 100%);
+            filter: blur(85.05000305175781px);
+            animation: randomMovement 20s infinite alternate;
+        }
+    }
+    #tiles,
+    #tiles-inverse {
+        display: grid;
+        grid-template-rows: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        opacity: 0.25;
+        z-index: 0;
+        .tile {
+            &.tile-1 {
+                background: linear-gradient(0deg, #0a0a0f 0%, #0069cc 100%);
+            }
+            &.tile-2 {
+                background: linear-gradient(327deg, #0a0a0f 3.98%, #2c608b 90.47%);
+            }
+            &.tile-3 {
+                background: linear-gradient(35deg, #0a0a0f -7%, #055fb4 49.89%);
+            }
+            &.tile-4 {
+                background: linear-gradient(12deg, #0a0a0f -10.44%, #0069cc 43.45%);
+            }
+            &.tile-5 {
+                background: linear-gradient(341deg, #0a0a0f 57.15%, #2c608b 93.93%);
+            }
+            &.tile-6 {
+                background: linear-gradient(349deg, #0a0a0f -8.96%, #0069cc 76.18%);
+            }
+        }
+    }
+    #tiles-inverse {
+        z-index: -1;
+    }
+}
+
+@keyframes randomMovement {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(20px, 20px);
+    }
+}

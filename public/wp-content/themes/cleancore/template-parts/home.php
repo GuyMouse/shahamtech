@@ -6,6 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section>
 	<div class="container">
-        <h1>Home Bro</h1>
+        <h1><?php echo get_the_title();?></h1>
 	</div>
 </section>

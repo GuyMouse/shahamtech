@@ -3,7 +3,6 @@
 @import "_utilities/mixins";
 @import "_utilities/fonts";
 
-
 // physical imports - partials
 @import "_partials/breadcrumbs";
 @import "_partials/buttons";
@@ -13,9 +12,7 @@
 @import "_partials/header";
 @import "_partials/menu";
 
-
 // physical imports - pages
-
+@import "_pages/about";
 
 // physical imports - components
-
