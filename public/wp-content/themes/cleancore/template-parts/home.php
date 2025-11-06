@@ -6,10 +6,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section>
 	<div class="container">
-		<?php
-		get_template_part( TEMPLATE_COMPONENTS, 'site-general-component', array(
-			'message' => 'Hello!',
-		));
-		?>
+        <h1>Home Bro</h1>
 	</div>
 </section>
