@@ -367,6 +367,17 @@ a img.aligncenter {
   filter: blur(85.0500030518px);
   animation: randomMovement 20s infinite alternate;
 }
+.page-template-about-template .about .glassbox {
+  border-radius: 55px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(60, 93, 184, 0.06) 100%);
+  box-shadow: 0 22px 39.2px 0 rgba(0, 0, 0, 0.25);
+  -webkit-backdrop-filter: blur(2.40625px);
+          backdrop-filter: blur(2.40625px);
+  padding: 5rem 0 3.5rem 13rem;
+}
+.page-template-about-template .about .glassbox h1 {
+  font-size: 18rem;
+}
 .page-template-about-template #tiles,
 .page-template-about-template #tiles-inverse {
   display: grid;
