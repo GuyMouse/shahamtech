@@ -8,7 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 //	CONSTANTS
 //============================
 define("IMAGES_DIR",get_template_directory_uri().'/assets/images');
+define("IMAGES_PATH",get_template_directory().'/assets/images');
 define("ICONS_DIR",get_template_directory_uri().'/assets/icons');
+define("ICONS_PATH",get_template_directory().'/assets/icons');
 define("TEMPLATE_PARTS",'template-parts');
 define("TEMPLATE_COMPONENTS",TEMPLATE_PARTS.'/components/component');
 define("THEME_VERSION",time());
@@ -139,5 +141,7 @@ function sort_terms_hierarchically(Array &$cats, Array &$into, $parentId = 0){
     }
 }
 
-
-
+add_filter( 'pll_the_languages_args', function( $args ) {
+    $args['display_names_as'] = 'slug';
+    return $args;
+} );

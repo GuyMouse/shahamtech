@@ -1,0 +1,11 @@
+.site-header {
+    &--wrapper {
+        .site-menu {
+            &--wrapper {
+                .lang-item {
+                    text-transform: capitalize;
+                }
+            }
+        }
+    }
+}

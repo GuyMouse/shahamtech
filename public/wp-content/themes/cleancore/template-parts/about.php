@@ -6,19 +6,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <section class="about">
 	<div class="container">
-        <div class="about-circle"></div>
         <div class="about--wrapper">
             <div class="glassbox">
-                <div class="glassbow-content">
-                    <h1>Shaham Tech</h1>
-                    <h2><?php echo get_the_title();?></h2>
-                    <div class="about-text">
-                        <?php echo apply_filters('the_content',get_the_content());?>
+                <div class="glassbox--wrapper">
+                    <div class="glassbox-content">
+                        <h1>Shaham Tec</h1>
+                        <h2><?php echo get_the_title();?></h2>
+                        <div class="about-text">
+                            <?php echo apply_filters('the_content',get_the_content());?>
+                        </div>
                     </div>
-                </div>
-                <div class="glassbox-videos">
-                    
-
+                    <div class="glassbox-videos">
+                        <div class="image-wrapper">
+                            <img src="<?php echo IMAGES_DIR.'/video-placeholder.png';?>">
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="<?php echo IMAGES_DIR.'/video-placeholder.png';?>">
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="<?php echo IMAGES_DIR.'/video-placeholder.png';?>">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

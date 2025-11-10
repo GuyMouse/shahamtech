@@ -1,25 +1,196 @@
+@property --a {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@property --c1 {
+    syntax: "<color>";
+    initial-value: #0a0a0f;
+    inherits: false;
+}
+@property --c2 {
+    syntax: "<color>";
+    initial-value: #0069cc;
+    inherits: false;
+}
+@property --p1 {
+    syntax: "<percentage>";
+    initial-value: 0%;
+    inherits: false;
+}
+@property --p2 {
+    syntax: "<percentage>";
+    initial-value: 100%;
+    inherits: false;
+}
+
+$tile-styles: (
+    1: (
+        a: 0deg,
+        c1: #0a0a0f,
+        c2: #0069cc,
+        p1: 0%,
+        p2: 100%
+    ),
+    2: (
+        a: 327deg,
+        c1: #0a0a0f,
+        c2: #2c608b,
+        p1: 3.98%,
+        p2: 90.47%
+    ),
+    3: (
+        a: 35deg,
+        c1: #0a0a0f,
+        c2: #055fb4,
+        p1: -7%,
+        p2: 49.89%
+    ),
+    4: (
+        a: 12deg,
+        c1: #0a0a0f,
+        c2: #0069cc,
+        p1: -10.44%,
+        p2: 43.45%
+    ),
+    5: (
+        a: 341deg,
+        c1: #0a0a0f,
+        c2: #2c608b,
+        p1: 57.15%,
+        p2: 93.93%
+    ),
+    6: (
+        a: 349deg,
+        c1: #0a0a0f,
+        c2: #0069cc,
+        p1: -8.96%,
+        p2: 76.18%
+    )
+);
+
+$fixedPattern: (
+    (1, 3, 1, 2, 1, 1, 2, 1),
+    (3, 1, 1, 1, 2, 1, 1, 3),
+    (1, 1, 1, 1, 2, 1, 1, 3),
+    (2, 1, 3, 1, 1, 3, 2, 1),
+    (3, 3, 1, 3, 1, 1, 1, 2)
+);
+
+$transitionedPattern: (
+    (1, 6, 4, 5, 1, 4, 5, 4),
+    (3, 1, 1, 1, 5, 1, 1, 6),
+    (1, 6, 4, 1, 5, 1, 1, 6),
+    (5, 4, 6, 1, 1, 3, 2, 1),
+    (6, 3, 1, 3, 1, 4, 1, 5)
+);
+
 .page-template-about-template {
+    overflow: hidden;
     .about {
-        &-circle {
-            position: absolute;
-            background: radial-gradient(55.79% 55.79% at 50% 50%, #60c5ff 0%, rgba(0, 0, 0, 0) 100%);
-            filter: blur(85.05000305175781px);
-            animation: randomMovement 20s infinite alternate;
-        }
         .glassbox {
+            position: relative;
             border-radius: 55px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(60, 93, 184, 0.06) 100%);
-            box-shadow: 0 22px 39.2px 0 rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(2.40625px);
-            padding: 5rem 0 3.5rem 13rem;
-            h1 {
-                font-size: 18rem;
-                margin: 0;
+            &--wrapper {
+                position: relative;
+                display: grid;
+                grid-template-columns: 3fr 2fr;
+                align-items: stretch;
+                z-index: 1;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(60, 93, 184, 0.06) 100%);
+                box-shadow: 0 22px 39.2px 0 rgba(0, 0, 0, 0.25);
+                backdrop-filter: blur(2.40625px);
+                border-radius: 55px;
+                pointer-events: none;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url(../images/glow.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                opacity: 0.55;
+                mix-blend-mode: soft-light;
+                animation: randomMovement 20s infinite alternate;
+                pointer-events: none;
+                -webkit-user-drag: none;
+                z-index: 1;
+            }
+            &-content {
+                position: relative;
+                height: 100%;
+                padding: 5rem 0 3.5rem 13rem;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 10%;
+                    left: 10%;
+                    // transform: translate(-20%, 10%);
+                    width: 2px;
+                    height: 90%;
+                    background: linear-gradient(to bottom, #00ddf4 0%, #003363 100%);
+                }
+                h1 {
+                    font-family: "Omer", sans-serif;
+                    font-size: 18rem;
+                    font-weight: 300;
+                    margin: 0 0 4rem;
+                    position: relative;
+                    z-index: 2;
+                }
+                h2 {
+                    font-size: 5.6rem;
+                    font-weight: 400;
+                    margin: 0 0 3rem;
+                }
+                .about-text {
+                    font-size: 1.9rem;
+                    font-weight: 500;
+                }
+            }
+            &-videos {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                height: 100%;
+                .image-wrapper {
+                    width: 100%;
+                    height: 100%;
+                    grid-row: 3;
+                    grid-column: 2;
+                    &:nth-child(2) {
+                        grid-row: 2;
+                        grid-column: 3;
+                    }
+                    &:last-child {
+                        grid-row: 1;
+                    }
+                    img {
+                        display: inline-block;
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
             }
         }
     }
-    #tiles,
-    #tiles-inverse {
+    #tiles {
         display: grid;
         grid-template-rows: repeat(5, minmax(0, 1fr));
         grid-template-columns: repeat(8, minmax(0, 1fr));
@@ -30,40 +201,62 @@
         bottom: 0;
         width: 100%;
         height: 100%;
-        pointer-events: none;
         opacity: 0.25;
-        z-index: 0;
+        pointer-events: none;
+        z-index: 1;
         .tile {
-            &.tile-1 {
-                background: linear-gradient(0deg, #0a0a0f 0%, #0069cc 100%);
-            }
-            &.tile-2 {
-                background: linear-gradient(327deg, #0a0a0f 3.98%, #2c608b 90.47%);
-            }
-            &.tile-3 {
-                background: linear-gradient(35deg, #0a0a0f -7%, #055fb4 49.89%);
-            }
-            &.tile-4 {
-                background: linear-gradient(12deg, #0a0a0f -10.44%, #0069cc 43.45%);
-            }
-            &.tile-5 {
-                background: linear-gradient(341deg, #0a0a0f 57.15%, #2c608b 93.93%);
-            }
-            &.tile-6 {
-                background: linear-gradient(349deg, #0a0a0f -8.96%, #0069cc 76.18%);
+            background: linear-gradient(var(--a), var(--c1) var(--p1), var(--c2) var(--p2));
+            transition:
+                --a 700ms ease,
+                --c1 700ms ease,
+                --c2 700ms ease,
+                --p1 700ms ease,
+                --p2 700ms ease;
+            @for $r from 0 to 5 {
+                @for $c from 0 to 8 {
+                    $fixed-type: nth(nth($fixedPattern, $r + 1), $c + 1);
+                    $fixed-styles: map-get($tile-styles, $fixed-type);
+
+                    &[data-r="#{$r}"][data-c="#{$c}"] {
+                        --a: #{map-get($fixed-styles, a)};
+                        --c1: #{map-get($fixed-styles, c1)};
+                        --c2: #{map-get($fixed-styles, c2)};
+                        --p1: #{map-get($fixed-styles, p1)};
+                        --p2: #{map-get($fixed-styles, p2)};
+                    }
+                }
             }
         }
-    }
-    #tiles-inverse {
-        z-index: -1;
+        &.is-transitioned {
+            .tile {
+                @for $r from 0 to 5 {
+                    @for $c from 0 to 8 {
+                        $transitioned-type: nth(nth($transitionedPattern, $r + 1), $c + 1);
+                        $transitioned-styles: map-get($tile-styles, $transitioned-type);
+
+                        &[data-r="#{$r}"][data-c="#{$c}"] {
+                            --a: #{map-get($transitioned-styles, a)};
+                            --c1: #{map-get($transitioned-styles, c1)};
+                            --c2: #{map-get($transitioned-styles, c2)};
+                            --p1: #{map-get($transitioned-styles, p1)};
+                            --p2: #{map-get($transitioned-styles, p2)};
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 @keyframes randomMovement {
     0% {
-        transform: translate(0, 0);
+        top: 0;
+        left: -50%;
+    }
+    50% {
+        top: 50%;
     }
     100% {
-        transform: translate(20px, 20px);
+        left: 0;
     }
 }
