@@ -377,6 +377,7 @@ a img.aligncenter {
 }
 .page-template-about-template .about .glassbox h1 {
   font-size: 18rem;
+  margin: 0;
 }
 .page-template-about-template #tiles,
 .page-template-about-template #tiles-inverse {
