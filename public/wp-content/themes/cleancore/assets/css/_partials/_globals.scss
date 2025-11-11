@@ -16,7 +16,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    font-family: $default-font;
+    font-family: $main-font;
     font-size: 1.8rem;
     font-weight: 400;
     background-color: #0f2848;
@@ -32,11 +32,14 @@ main {
 }
 
 .container {
-    width: 120rem;
+    max-width: 120rem;
     margin: 0 auto;
     @include mobile {
-        width: 100%;
+        max-width: 100%;
         margin: 0;
+    }
+    &.wide {
+        max-width: 140rem;
     }
 }
 

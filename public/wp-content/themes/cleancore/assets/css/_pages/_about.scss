@@ -61,7 +61,7 @@ $tile-styles: (
         p2: 93.93%
     ),
     6: (
-        a: 349deg,
+        a: -34deg,
         c1: #0a0a0f,
         c2: #0069cc,
         p1: -8.96%,
@@ -86,30 +86,29 @@ $transitionedPattern: (
 );
 
 .page-template-about-template {
-    overflow: hidden;
     .about {
+        z-index: 1;
+        &--wrapper {
+            padding: 0 2rem;
+        }
         .glassbox {
             position: relative;
             border-radius: 55px;
+            backdrop-filter: blur(4px);
             &--wrapper {
                 position: relative;
                 display: grid;
-                grid-template-columns: 3fr 2fr;
+                grid-template-columns: 2fr 2fr;
                 align-items: stretch;
                 z-index: 1;
             }
             &:after {
                 content: "";
                 position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
+                inset: 0;
                 background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(60, 93, 184, 0.06) 100%);
                 box-shadow: 0 22px 39.2px 0 rgba(0, 0, 0, 0.25);
-                backdrop-filter: blur(2.40625px);
+                backdrop-filter: blur(2px);
                 border-radius: 55px;
                 pointer-events: none;
             }
@@ -120,14 +119,14 @@ $transitionedPattern: (
                 right: 0;
                 bottom: 0;
                 left: 0;
-                width: 100%;
-                height: 100%;
                 background-image: url(../images/glow.png);
                 background-repeat: no-repeat;
                 background-size: contain;
                 opacity: 0.55;
+                width: 100%;
+                height: 100%;
                 mix-blend-mode: soft-light;
-                animation: randomMovement 20s infinite alternate;
+                animation: randomMovement 40s infinite alternate;
                 pointer-events: none;
                 -webkit-user-drag: none;
                 z-index: 1;
@@ -141,14 +140,13 @@ $transitionedPattern: (
                     position: absolute;
                     top: 10%;
                     left: 10%;
-                    // transform: translate(-20%, 10%);
                     width: 2px;
-                    height: 90%;
+                    height: 80%;
                     background: linear-gradient(to bottom, #00ddf4 0%, #003363 100%);
                 }
                 h1 {
-                    font-family: "Omer", sans-serif;
-                    font-size: 18rem;
+                    font-family: $mouse-font;
+                    font-size: 17rem;
                     font-weight: 300;
                     margin: 0 0 4rem;
                     position: relative;
@@ -161,7 +159,8 @@ $transitionedPattern: (
                 }
                 .about-text {
                     font-size: 1.9rem;
-                    font-weight: 500;
+                    font-weight: 400;
+                    line-height: 25px;
                 }
             }
             &-videos {
@@ -173,6 +172,9 @@ $transitionedPattern: (
                     height: 100%;
                     grid-row: 3;
                     grid-column: 2;
+                    position: relative;
+                    overflow: hidden;
+                    // border-radius: 16px;
                     &:nth-child(2) {
                         grid-row: 2;
                         grid-column: 3;
@@ -185,6 +187,9 @@ $transitionedPattern: (
                         object-fit: cover;
                         width: 100%;
                         height: 100%;
+                        border-radius: inherit;
+                        position: relative;
+                        z-index: 1;
                     }
                 }
             }
@@ -195,52 +200,54 @@ $transitionedPattern: (
         grid-template-rows: repeat(5, minmax(0, 1fr));
         grid-template-columns: repeat(8, minmax(0, 1fr));
         position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
+        inset: 0;
         width: 100%;
         height: 100%;
-        opacity: 0.25;
+        opacity: 0.35;
         pointer-events: none;
         z-index: 1;
+        &:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: rgba(19, 52, 78, 0.425);
+        }
         .tile {
             background: linear-gradient(var(--a), var(--c1) var(--p1), var(--c2) var(--p2));
-            transition:
-                --a 700ms ease,
-                --c1 700ms ease,
-                --c2 700ms ease,
-                --p1 700ms ease,
-                --p2 700ms ease;
+            animation: tileMorph var(--dur, 6s) ease-in-out infinite alternate;
+
             @for $r from 0 to 5 {
                 @for $c from 0 to 8 {
                     $fixed-type: nth(nth($fixedPattern, $r + 1), $c + 1);
                     $fixed-styles: map-get($tile-styles, $fixed-type);
 
-                    &[data-r="#{$r}"][data-c="#{$c}"] {
-                        --a: #{map-get($fixed-styles, a)};
-                        --c1: #{map-get($fixed-styles, c1)};
-                        --c2: #{map-get($fixed-styles, c2)};
-                        --p1: #{map-get($fixed-styles, p1)};
-                        --p2: #{map-get($fixed-styles, p2)};
-                    }
-                }
-            }
-        }
-        &.is-transitioned {
-            .tile {
-                @for $r from 0 to 5 {
-                    @for $c from 0 to 8 {
-                        $transitioned-type: nth(nth($transitionedPattern, $r + 1), $c + 1);
-                        $transitioned-styles: map-get($tile-styles, $transitioned-type);
+                    $transitioned-type: nth(nth($transitionedPattern, $r + 1), $c + 1);
+                    $transitioned-styles: map-get($tile-styles, $transitioned-type);
 
-                        &[data-r="#{$r}"][data-c="#{$c}"] {
-                            --a: #{map-get($transitioned-styles, a)};
-                            --c1: #{map-get($transitioned-styles, c1)};
-                            --c2: #{map-get($transitioned-styles, c2)};
-                            --p1: #{map-get($transitioned-styles, p1)};
-                            --p2: #{map-get($transitioned-styles, p2)};
-                        }
+                    &[data-r="#{$r}"][data-c="#{$c}"] {
+                        --r: #{$r};
+                        --c: #{$c};
+
+                        --a-from: #{map-get($fixed-styles, a)};
+                        --c1-from: #{map-get($fixed-styles, c1)};
+                        --c2-from: #{map-get($fixed-styles, c2)};
+                        --p1-from: #{map-get($fixed-styles, p1)};
+                        --p2-from: #{map-get($fixed-styles, p2)};
+
+                        --a-to: #{map-get($transitioned-styles, a)};
+                        --c1-to: #{map-get($transitioned-styles, c1)};
+                        --c2-to: #{map-get($transitioned-styles, c2)};
+                        --p1-to: #{map-get($transitioned-styles, p1)};
+                        --p2-to: #{map-get($transitioned-styles, p2)};
+
+                        --a: var(--a-from);
+                        --c1: var(--c1-from);
+                        --c2: var(--c2-from);
+                        --p1: var(--p1-from);
+                        --p2: var(--p2-from);
+
+                        --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
+                        animation-delay: calc((var(--r) * 0.15s) + (var(--c) * 0.1s));
                     }
                 }
             }
@@ -251,12 +258,40 @@ $transitionedPattern: (
 @keyframes randomMovement {
     0% {
         top: 0;
-        left: -50%;
+        left: -60%;
     }
-    50% {
+    30% {
         top: 50%;
     }
+    80% {
+        top: 30%;
+    }
     100% {
-        left: 0;
+        top: -40%;
+        left: 70%;
+    }
+}
+
+@keyframes tileMorph {
+    0% {
+        --a: var(--a-from);
+        --c1: var(--c1-from);
+        --c2: var(--c2-from);
+        --p1: var(--p1-from);
+        --p2: var(--p2-from);
+    }
+    50% {
+        --a: var(--a-to);
+        --c1: var(--c1-to);
+        --c2: var(--c2-to);
+        --p1: var(--p1-to);
+        --p2: var(--p2-to);
+    }
+    100% {
+        --a: var(--a-from);
+        --c1: var(--c1-from);
+        --c2: var(--c2-from);
+        --p1: var(--p1-from);
+        --p2: var(--p2-from);
     }
 }

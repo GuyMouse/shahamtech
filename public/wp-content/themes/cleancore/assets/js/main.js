@@ -11,13 +11,6 @@ jQuery(document).ready(function ($) {
         [2, 1, 3, 1, 1, 3, 2, 1],
         [3, 3, 1, 3, 1, 1, 1, 2],
     ];
-    // const transitionedPattern = [
-    //     [1, 6, 4, 5, 1, 4, 5, 4],
-    //     [3, 1, 1, 1, 5, 1, 1, 6],
-    //     [1, 6, 4, 1, 5, 1, 1, 6],
-    //     [5, 4, 6, 1, 1, 3, 2, 1],
-    //     [6, 3, 1, 3, 1, 4, 1, 5],
-    // ];
 
     const ROWS = 5, COLS = 8;
     const tiles = $('#tiles');
@@ -34,8 +27,7 @@ jQuery(document).ready(function ($) {
 
     build();
 
-    setInterval(() => {
-        tiles.toggleClass('is-transitioned');
-    }, 3000);
-
+    const width = tiles.width();
+    const height = tiles.height();
+    console.log(width, height)
 });

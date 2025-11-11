@@ -5,7 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <section class="about">
-	<div class="container">
+	<div class="container wide">
         <div class="about--wrapper">
             <div class="glassbox">
                 <div class="glassbox--wrapper">
@@ -31,4 +31,10 @@ if ( ! defined( 'ABSPATH' ) ) {
             </div>
         </div>
 	</div>
+</section>
+
+<section class="experties" style="height: 100vh;">
+    <div class="container">
+
+    </div>
 </section>

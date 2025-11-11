@@ -141,7 +141,13 @@ function sort_terms_hierarchically(Array &$cats, Array &$into, $parentId = 0){
     }
 }
 
-add_filter( 'pll_the_languages_args', function( $args ) {
-    $args['display_names_as'] = 'slug';
-    return $args;
-} );
+// add_filter( 'pll_the_languages_args', function( $args ) {
+//     $args['display_names_as'] = 'slug';
+//     return $args;
+// } );
+
+add_filter('nav_menu_item_title', function($title, $item) {
+    return mb_substr($title, 0, 2, 'UTF-8');
+}, 10, 2);
+
+
