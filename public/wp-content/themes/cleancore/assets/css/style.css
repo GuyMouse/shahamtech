@@ -602,23 +602,34 @@ a img.aligncenter {
   inherits: false;
 }
 .page-template-about-template .about {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 184px);
+  width: 100%;
   z-index: 1;
 }
 .page-template-about-template .about--wrapper {
   padding: 0 2rem;
+  height: 100%;
 }
 .page-template-about-template .about .glassbox {
-  position: relative;
+  position: absolute;
+  left: 12.5%;
   border-radius: 55px;
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
+  transition: width 0.2s linear, height 0.2s linear;
 }
 .page-template-about-template .about .glassbox--wrapper {
   position: relative;
-  display: grid;
-  grid-template-columns: 2fr 2fr;
+  display: flex;
   align-items: stretch;
+  height: 100%;
   z-index: 1;
+}
+.page-template-about-template .about .glassbox--wrapper > div {
+  flex: 50%;
 }
 .page-template-about-template .about .glassbox:after {
   content: "";
@@ -668,6 +679,7 @@ a img.aligncenter {
   font-family: "Omer", sans-serif;
   font-size: 17rem;
   font-weight: 300;
+  white-space: nowrap;
   margin: 0 0 4rem;
   position: relative;
   z-index: 2;
@@ -685,11 +697,8 @@ a img.aligncenter {
 .page-template-about-template .about .glassbox-videos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 100%;
 }
 .page-template-about-template .about .glassbox-videos .image-wrapper {
-  width: 100%;
-  height: 100%;
   grid-row: 3;
   grid-column: 2;
   position: relative;
