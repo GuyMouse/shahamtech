@@ -33,8 +33,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</div>
 </section>
 
-<section class="experties" style="height: 100vh;">
+<section class="management">
     <div class="container">
-
+        <div class="management--wrapper">
+            <div class="management-tiles">
+                <div class="management-tiles--wrapper">
+                    
+                </div>
+            </div>
+        </div>
     </div>
 </section>

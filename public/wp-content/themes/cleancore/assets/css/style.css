@@ -576,31 +576,12 @@ a img.aligncenter {
   color: #fff;
 }
 
-@property --a {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
+html:has(body.page-template-about-template),
+body.page-template-about-template,
+body.page-template-about-template main {
+  height: 100%;
 }
-@property --c1 {
-  syntax: "<color>";
-  initial-value: #0a0a0f;
-  inherits: false;
-}
-@property --c2 {
-  syntax: "<color>";
-  initial-value: #0069cc;
-  inherits: false;
-}
-@property --p1 {
-  syntax: "<percentage>";
-  initial-value: 0%;
-  inherits: false;
-}
-@property --p2 {
-  syntax: "<percentage>";
-  initial-value: 100%;
-  inherits: false;
-}
+
 .page-template-about-template .about {
   position: absolute;
   top: 0;
@@ -721,7 +702,49 @@ a img.aligncenter {
   position: relative;
   z-index: 1;
 }
-.page-template-about-template #tiles {
+
+@keyframes randomMovement {
+  0% {
+    top: 0;
+    left: -60%;
+  }
+  30% {
+    top: 50%;
+  }
+  80% {
+    top: 30%;
+  }
+  100% {
+    top: -40%;
+    left: 70%;
+  }
+}
+@property --a {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --c1 {
+  syntax: "<color>";
+  initial-value: #0a0a0f;
+  inherits: false;
+}
+@property --c2 {
+  syntax: "<color>";
+  initial-value: #0069cc;
+  inherits: false;
+}
+@property --p1 {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: false;
+}
+@property --p2 {
+  syntax: "<percentage>";
+  initial-value: 100%;
+  inherits: false;
+}
+#tiles {
   display: grid;
   grid-template-rows: repeat(5, minmax(0, 1fr));
   grid-template-columns: repeat(8, minmax(0, 1fr));
@@ -733,17 +756,17 @@ a img.aligncenter {
   pointer-events: none;
   z-index: 1;
 }
-.page-template-about-template #tiles:before {
+#tiles:before {
   content: "";
   position: absolute;
   inset: 0;
   background-color: rgba(19, 52, 78, 0.425);
 }
-.page-template-about-template #tiles .tile {
+#tiles .tile {
   background: linear-gradient(var(--a), var(--c1) var(--p1), var(--c2) var(--p2));
   animation: tileMorph var(--dur, 6s) ease-in-out infinite alternate;
 }
-.page-template-about-template #tiles .tile[data-r="0"][data-c="0"] {
+#tiles .tile[data-r="0"][data-c="0"] {
   --r: 0;
   --c: 0;
   --a-from: 0deg;
@@ -764,7 +787,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="0"][data-c="1"] {
+#tiles .tile[data-r="0"][data-c="1"] {
   --r: 0;
   --c: 1;
   --a-from: 35deg;
@@ -785,7 +808,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="0"][data-c="2"] {
+#tiles .tile[data-r="0"][data-c="2"] {
   --r: 0;
   --c: 2;
   --a-from: 0deg;
@@ -806,7 +829,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="0"][data-c="3"] {
+#tiles .tile[data-r="0"][data-c="3"] {
   --r: 0;
   --c: 3;
   --a-from: 327deg;
@@ -827,7 +850,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="0"][data-c="4"] {
+#tiles .tile[data-r="0"][data-c="4"] {
   --r: 0;
   --c: 4;
   --a-from: 0deg;
@@ -848,7 +871,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="0"][data-c="5"] {
+#tiles .tile[data-r="0"][data-c="5"] {
   --r: 0;
   --c: 5;
   --a-from: 0deg;
@@ -869,7 +892,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="0"][data-c="6"] {
+#tiles .tile[data-r="0"][data-c="6"] {
   --r: 0;
   --c: 6;
   --a-from: 327deg;
@@ -890,7 +913,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="0"][data-c="7"] {
+#tiles .tile[data-r="0"][data-c="7"] {
   --r: 0;
   --c: 7;
   --a-from: 0deg;
@@ -911,7 +934,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="1"][data-c="0"] {
+#tiles .tile[data-r="1"][data-c="0"] {
   --r: 1;
   --c: 0;
   --a-from: 35deg;
@@ -932,7 +955,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="1"][data-c="1"] {
+#tiles .tile[data-r="1"][data-c="1"] {
   --r: 1;
   --c: 1;
   --a-from: 0deg;
@@ -953,7 +976,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="1"][data-c="2"] {
+#tiles .tile[data-r="1"][data-c="2"] {
   --r: 1;
   --c: 2;
   --a-from: 0deg;
@@ -974,7 +997,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="1"][data-c="3"] {
+#tiles .tile[data-r="1"][data-c="3"] {
   --r: 1;
   --c: 3;
   --a-from: 0deg;
@@ -995,7 +1018,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="1"][data-c="4"] {
+#tiles .tile[data-r="1"][data-c="4"] {
   --r: 1;
   --c: 4;
   --a-from: 327deg;
@@ -1016,7 +1039,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="1"][data-c="5"] {
+#tiles .tile[data-r="1"][data-c="5"] {
   --r: 1;
   --c: 5;
   --a-from: 0deg;
@@ -1037,7 +1060,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="1"][data-c="6"] {
+#tiles .tile[data-r="1"][data-c="6"] {
   --r: 1;
   --c: 6;
   --a-from: 0deg;
@@ -1058,7 +1081,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="1"][data-c="7"] {
+#tiles .tile[data-r="1"][data-c="7"] {
   --r: 1;
   --c: 7;
   --a-from: 35deg;
@@ -1079,7 +1102,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="2"][data-c="0"] {
+#tiles .tile[data-r="2"][data-c="0"] {
   --r: 2;
   --c: 0;
   --a-from: 0deg;
@@ -1100,7 +1123,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="2"][data-c="1"] {
+#tiles .tile[data-r="2"][data-c="1"] {
   --r: 2;
   --c: 1;
   --a-from: 0deg;
@@ -1121,7 +1144,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="2"][data-c="2"] {
+#tiles .tile[data-r="2"][data-c="2"] {
   --r: 2;
   --c: 2;
   --a-from: 0deg;
@@ -1142,7 +1165,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="2"][data-c="3"] {
+#tiles .tile[data-r="2"][data-c="3"] {
   --r: 2;
   --c: 3;
   --a-from: 0deg;
@@ -1163,7 +1186,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="2"][data-c="4"] {
+#tiles .tile[data-r="2"][data-c="4"] {
   --r: 2;
   --c: 4;
   --a-from: 327deg;
@@ -1184,7 +1207,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="2"][data-c="5"] {
+#tiles .tile[data-r="2"][data-c="5"] {
   --r: 2;
   --c: 5;
   --a-from: 0deg;
@@ -1205,7 +1228,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="2"][data-c="6"] {
+#tiles .tile[data-r="2"][data-c="6"] {
   --r: 2;
   --c: 6;
   --a-from: 0deg;
@@ -1226,7 +1249,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="2"][data-c="7"] {
+#tiles .tile[data-r="2"][data-c="7"] {
   --r: 2;
   --c: 7;
   --a-from: 35deg;
@@ -1247,7 +1270,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="3"][data-c="0"] {
+#tiles .tile[data-r="3"][data-c="0"] {
   --r: 3;
   --c: 0;
   --a-from: 327deg;
@@ -1268,7 +1291,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="3"][data-c="1"] {
+#tiles .tile[data-r="3"][data-c="1"] {
   --r: 3;
   --c: 1;
   --a-from: 0deg;
@@ -1289,7 +1312,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="3"][data-c="2"] {
+#tiles .tile[data-r="3"][data-c="2"] {
   --r: 3;
   --c: 2;
   --a-from: 35deg;
@@ -1310,7 +1333,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="3"][data-c="3"] {
+#tiles .tile[data-r="3"][data-c="3"] {
   --r: 3;
   --c: 3;
   --a-from: 0deg;
@@ -1331,7 +1354,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="3"][data-c="4"] {
+#tiles .tile[data-r="3"][data-c="4"] {
   --r: 3;
   --c: 4;
   --a-from: 0deg;
@@ -1352,7 +1375,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="3"][data-c="5"] {
+#tiles .tile[data-r="3"][data-c="5"] {
   --r: 3;
   --c: 5;
   --a-from: 35deg;
@@ -1373,7 +1396,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="3"][data-c="6"] {
+#tiles .tile[data-r="3"][data-c="6"] {
   --r: 3;
   --c: 6;
   --a-from: 327deg;
@@ -1394,7 +1417,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="3"][data-c="7"] {
+#tiles .tile[data-r="3"][data-c="7"] {
   --r: 3;
   --c: 7;
   --a-from: 0deg;
@@ -1415,7 +1438,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="4"][data-c="0"] {
+#tiles .tile[data-r="4"][data-c="0"] {
   --r: 4;
   --c: 0;
   --a-from: 35deg;
@@ -1436,7 +1459,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="4"][data-c="1"] {
+#tiles .tile[data-r="4"][data-c="1"] {
   --r: 4;
   --c: 1;
   --a-from: 35deg;
@@ -1457,7 +1480,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="4"][data-c="2"] {
+#tiles .tile[data-r="4"][data-c="2"] {
   --r: 4;
   --c: 2;
   --a-from: 0deg;
@@ -1478,7 +1501,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="4"][data-c="3"] {
+#tiles .tile[data-r="4"][data-c="3"] {
   --r: 4;
   --c: 3;
   --a-from: 35deg;
@@ -1499,7 +1522,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="4"][data-c="4"] {
+#tiles .tile[data-r="4"][data-c="4"] {
   --r: 4;
   --c: 4;
   --a-from: 0deg;
@@ -1520,7 +1543,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="4"][data-c="5"] {
+#tiles .tile[data-r="4"][data-c="5"] {
   --r: 4;
   --c: 5;
   --a-from: 0deg;
@@ -1541,7 +1564,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="4"][data-c="6"] {
+#tiles .tile[data-r="4"][data-c="6"] {
   --r: 4;
   --c: 6;
   --a-from: 0deg;
@@ -1562,7 +1585,7 @@ a img.aligncenter {
   --dur: calc(1.5s + (var(--r) + var(--c)) * 0.25s);
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
-.page-template-about-template #tiles .tile[data-r="4"][data-c="7"] {
+#tiles .tile[data-r="4"][data-c="7"] {
   --r: 4;
   --c: 7;
   --a-from: 327deg;
@@ -1584,22 +1607,6 @@ a img.aligncenter {
   animation-delay: calc(var(--r) * 0.15s + var(--c) * 0.1s);
 }
 
-@keyframes randomMovement {
-  0% {
-    top: 0;
-    left: -60%;
-  }
-  30% {
-    top: 50%;
-  }
-  80% {
-    top: 30%;
-  }
-  100% {
-    top: -40%;
-    left: 70%;
-  }
-}
 @keyframes tileMorph {
   0% {
     --a: var(--a-from);
